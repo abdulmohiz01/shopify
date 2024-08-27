@@ -15,11 +15,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-<<<<<<< HEAD
-            "heading": "Browse our latest products local change test github",
-=======
-            "heading": "Browse our latest products Live change",
->>>>>>> 8ff7fd23acbb729ac546eceb99f599534d4491a8
+            "heading": "Browse our latest products Live change from Admin",
             "heading_size": "h0"
           }
         },
