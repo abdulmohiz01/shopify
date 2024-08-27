@@ -14,8 +14,8 @@
       "blocks": {
         "heading": {
           "type": "heading",
-          "settings": { 
-            "heading": "Browse our latest products Live change",
+          "settings": {
+            "heading": "Browse our latest products Live change from Admin",
             "heading_size": "h0"
           }
         },
