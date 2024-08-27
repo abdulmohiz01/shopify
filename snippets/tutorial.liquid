@@ -1,0 +1,186 @@
+{% comment %}
+  This is a comment and should not render and is not sent to the client
+{% endcomment %}
+
+<!-- html comment -->
+
+{% comment %} String {% endcomment %}
+{% assign myString = 'hey, Im a string' %}
+{{ myString }}
+{{ myString.size }}
+{{ myString | upcase }}
+{{ myString | downcase }}
+{{ myString | capitalize }}
+
+{% comment %} Number {% endcomment %}
+{% assign myNumber = 12 %}
+{% assign myFloatNumbber = 12.12 %}
+{{ myNumber }}, {{ myFloatNumbber }}
+
+{% comment %} Boolean {% endcomment %}
+
+{%- assign myBoolean = true -%}
+{{- myBoolean- }}
+<br>
+{% assign myNull = null %}
+{{ myNull }}
+
+{% if myNumber == null %}
+  <p>undefinedVariable is equal to nil</p>
+{% endif %}
+
+{% comment %} Array {% endcomment %}
+{% assign myArray = [1,2,3,4] |  split: "," %}
+{{ myArray }}
+{{ product.tags[1] }}
+{{ product.tags.size }}
+
+{% comment %}
+  Loop
+{% endcomment %}
+
+{% for tag in product.tags %}
+  {{ tag }}
+  <br>
+{% endfor %}
+{% comment %}
+  Object
+{% endcomment %}
+
+<p>{{ product.price }}</p>
+
+<br>
+{% comment %}
+  capture is used to store the output of a block of code
+{% endcomment %}
+{% capture html %}
+    <div>
+        <h1> Hello, {{product.title}}</h1>
+    </div>
+{% endcapture %}
+{{ html }}
+{%- assign array_one = 'value1, value2, value3' | split: ',' -%}
+{{ array_one }}
+{%- assign sum_array = '0, 1, 2, 3' | split: ', ' -%}
+{{ sum_array | sum }}
+
+<br>
+{%- assign array_two = 'value1, value2, value3' | split: ', ' -%}
+{{ array_two | join: ', ' }}
+{% assign temp = array_two | join: ', ' %}
+<p>Im{{ temp }}</p>
+<br>
+
+{%- assign array_three = 'value1, value2, value3' | split: ', ' -%}
+{{ array_three | first }}
+{{ array_three | last }}
+{{ array_three | reverse }}
+{{ array_three | sort }}
+{{ array_three | sort: 'first' }}
+{{ array_three | sort: 'last' }}
+<br>
+
+{%- assign array_four = 'value1, value2, value3' | split: ', ' -%}
+{{ array_four | map: 'size' }}
+{{ array_four | map: 'upcase' }}
+{{ array_four | map: 'downcase' }}
+{{ array_four | map: 'capitalize' }}
+<br>
+
+{%- assign array_five = 'value1, value2, value3' | split: ', ' -%}
+{{ array_five | map: 'size' | sum }}
+{{ array_five | map: 'size' | join: ', ' }}
+<br>
+
+{%- assign array_six = 'value1, value2, value3' | split: ', ' -%}
+{{ array_six | map: 'size' | first }}
+{{ array_six | map: 'size' | last }}
+{{ array_six | map: 'size' | reverse }}
+{{ array_six | map: 'size' | sort }}
+{{ array_six | map: 'size' | sort: 'first' }}
+{{ array_six | map: 'size' | sort: 'last' }}
+<br>
+
+{%- assign array_seven = 'value1, value2, value3' | split: ', ' -%}
+{{ array_seven | map: 'size' | map: 'size' }}
+{{ array_seven | map: 'size' | map: 'upcase' }}
+{{ array_seven | map: 'size' | map: 'downcase' }}
+{{ array_seven | map: 'size' | map: 'capitalize' }}
+<br>
+
+{%- assign array_eight = 'value1, value2, value3' | split: ', ' -%}
+{{ array_eight | map: 'size' | map: 'size' | sum }}
+{{ array_eight | map: 'size' | map: 'size' | join: ', ' }}
+<br>
+
+{%-
+  assign array_nine = "value1, value2, value3" |
+%}
+{% assign num1 = 20 %}
+{% assign num2 = 20 %}
+
+
+{% if num2 > 10 %}
+  <p>Number 1 is smaller than Num 2</p>
+{% elsif num1 == num2 %}
+  <p>Number 1 is equal to Num 2</p>
+{% else %}
+  <p>Number 1 is greater than Num 2</p>
+{% endif %}
+
+{% if product.title contains 'Snowboard' %}
+    <p>This is a snowboard.</p>
+{% endif %}
+{% if myString !='Mohiz' %}
+    <p>{{myString}}</p>    
+{% endif %}
+
+{% unless product.tags contains "Premium" %}
+    <p>Product contains premium tag</p>
+{% endunless %}
+
+
+{% comment %}
+    Logical Operators
+{% endcomment %}
+{% if product.title contains "Snowboard" or product.type == 'snowboard' and product.price < 3000 %}
+    <p>This product is Affordable</p>
+{% endif %}
+
+{% comment %}
+    case
+    nil - is undefined and is not equal to empty string while
+    blank is equal to empty string and is used to check whether a string is empty or not
+{% endcomment %}
+
+{% if product.type != blank %} 
+    {% case product.type %}
+    {% when 'snowboard' %}
+        <p>This is case 1-- snowboard</p>
+    {% when 'ski' %}
+        <p>This is case 2-- ski</p>
+    {% else %}
+    <p>This is default case</p>
+        
+{% endcase %}
+{% endif %}
+
+
+{% if product %}
+    <p>This is product page</p>
+{% endif %}
+
+
+{% comment %}
+    Looping
+{% endcomment %}
+
+{% for product in collection.products %}
+    <p>{{product.title}}</p>
+    <br>
+{% endfor %}
+
+{% for collection in collections %}
+    <p>{{collection.title}}</p>
+    <br>
+{% endfor %}
