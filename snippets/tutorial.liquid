@@ -325,32 +325,32 @@
 {% comment %} {{ collection.products.last | json }}  json is only allowed for specific objects  {% endcomment %}
 
 
-{{ shop.name }}
+{% comment %} {{ shop.name }}
 {{ collection.description | default: 'This is Default Description' | highlight: 'Description' }}
 <p>Copyright {{'now' |  date: '%Y'}}</p>
 <p>{{ 'now' | date: '%Y-%m-%d' }}</p>
+ {% endcomment %}
 
 
-
-{{'tutorial.css' |  asset_url |  stylesheet_tag}}
+{% comment %} {{'tutorial.css' |  asset_url |  stylesheet_tag}} {% endcomment %}
 
 {% comment %} <script src="{{'tutorial.js' |  asset_url}}" defer ></script> {% endcomment %}
 
-{% assign color1 = '#ff0000' %}
+{% comment %} {% assign color1 = '#ff0000' %}
 {% assign color2 = '#0000ff' %}
 <div class="swatch" style="background: {{  color1 |  color_lighten: 50}}"></div>
-<div class="swatch" style="background: {{  color1 | color_mix: color2, 50}}"></div>
+<div class="swatch" style="background: {{  color1 | color_mix: color2, 50}}"></div> {% endcomment %}
 
-
+{% comment %} 
 {% assign color3 = '#bfbfbf' %}
 <p>{{ color3 |  color_to_rgb }}</p>
 
-<div class="swatch" style="background: {{ color3 }}"></div>
+<div class="swatch" style="background: {{ color3 }}"></div> {% endcomment %}
 {% comment %}
     convert to rgb> color_to_rgb, hex> color_to_hex, hsl> color_to_hsl, name> color_to_name, rgba> color_to_rgba, hsla> color_to_hsla
 {% endcomment %}
 
-<p>{{ '#ffffff' | color_contrast: '#000000' }}  </p>
+{% comment %} <p>{{ '#ffffff' | color_contrast: '#000000' }}  </p>
 
 
 {{ collection.products.first.featured_image |  image_url: width:500, height:500 |  image_tag  }}
@@ -358,4 +358,4 @@
 {% liquid
     assign randomN = 4
     echo randomN
-%}
+%} {% endcomment %}
