@@ -1,0 +1,123 @@
+
+<h2>Text Setting</h2>
+<p>{{section.settings.text_setting}}</p>
+
+<h2>Text Area Setting</h2>
+<p>{{section.settings.textarea_setting |  newline_to_br}}</p>
+
+<h2>Rich text Setting</h2>
+<div>{{section.settings.richtext_setting }}</div>
+
+<h2>Inline Rich text Setting</h2>
+<div>{{section.settings.inline_richtext_setting }}</div>
+
+<h2>Number Setting</h2>
+<div>{{section.settings.number_setting }}</div>
+
+<h2>Range Setting</h2>
+<div>{{section.settings.range_setting }}</div>
+
+<h2>Select Setting</h2>
+<div>{{section.settings.select_setting }}</div>
+
+<h2>Radio Setting</h2>
+<div>{{section.settings.radio_setting }}</div>
+
+
+{% if section.settings.checkbox_setting %}
+        <p>True</p>
+    {% else %}
+        <p>False</p>
+    
+{% endif %}
+
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Sections Tutorial",
+    "tag": "section",
+    "class": "sections-tutorial",
+    "limit": 2,
+    "settings": [
+        {           //first 3 are required, rest are optional
+            "type": "text",
+            "id": "text_setting",
+            "label": "Text Setting",
+            "default": "This is my first setting",
+            "info": "This is some helpful information",
+            "placeholder": "This is a placeholder"
+        },
+        {           //first 3 are required, rest are optional
+            "type": "textarea",
+            "id": "textarea_setting",
+            "label": "Text Area Setting", 
+            "info": "This is some helpful information"
+        },
+        {
+            "type": "richtext",
+            "id": "richtext_setting",
+            "label": "Rich Text Setting"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "inline_richtext_setting",
+            "label": "Inline Rich Text Setting"
+        },
+        {
+            "type": "number",
+            "id": "number_setting",
+            "label": "Number Setting"
+        },
+        {
+            "type": "range",
+            "id": "range_setting",
+            "label": "Range Setting",
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "default": 50,
+            "unit": "px"
+        },
+        {
+            "type": "select",
+            "id": "select_setting",
+            "label": "Select Option",
+            "options": [
+                { "value": "value 1", "label": "Option 1"},
+                { "value": "value 2", "label": "Option 2" },
+                { "value": "value 3", "label": "Option 3" }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "label": "Checkbox Setting",
+            "id": "checkbox_setting",
+            "default": true
+        },
+        {
+            "type": "radio",
+            "id": "radio_setting",
+            "label": "Radio Setting",
+            "options": [
+                { "value": "value 1", "label": "Option 1"},
+                { "value": "value 2", "label": "Option 2" },
+                { "value": "value 3", "label": "Option 3" }
+            ]
+        }
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "Sections Tutorial",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
