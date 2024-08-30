@@ -98,7 +98,7 @@
         <p>collection block</p>
             {% assign title = block.settings.title |  default: block.settings.collection.title %}
         {% elsif block.type == "section_product" %}
-            <p>product block</p>
+            {% comment %} <p>product block</p> {% endcomment %}
             {% assign title = block.settings.title |  default: block.settings.product.title %}
     {% endif %}
     {{title}}

@@ -42,6 +42,26 @@
     },
     "sections_tutorial_BfGfkV": {
       "type": "sections-tutorial",
+      "blocks": {
+        "section_product_BdWAf4": {
+          "type": "section_product",
+          "settings": {
+            "product_setting": "selling-plans-ski-wax",
+            "text_setting": "This is a product."
+          }
+        },
+        "section_product_faT8wF": {
+          "type": "section_product",
+          "settings": {
+            "product_setting": "selling-plans-ski-wax",
+            "text_setting": "This is a sample product"
+          }
+        }
+      },
+      "block_order": [
+        "section_product_BdWAf4",
+        "section_product_faT8wF"
+      ],
       "settings": {
         "text_setting": "This is my first setting",
         "textarea_setting": "hey",
@@ -52,7 +72,26 @@
         "select_setting": "value 2",
         "checkbox_setting": true,
         "radio_setting": "value 1",
-        "color_setting": "#334fb4"
+        "color_setting": "#ff1818",
+        "colorbackground_setting": "linear-gradient(54deg, rgba(114, 255, 179, 1) 14%, rgba(255, 250, 99, 1) 85%)",
+        "image_picker_setting": "shopify:\/\/shop_images\/Main_f3f5e508-651d-45f6-8a7e-7ede72ab1a51.jpg",
+        "video_setting": "shopify:\/\/files\/videos\/3209148-uhd_3840_2160_25fps.mp4",
+        "product_description_video": "https:\/\/www.youtube.com\/watch?v=3n5sWA2ow1Q&list=PLsr48ksn9_9Bzii-fRXRTVAo3OPYTtMAU&index=7",
+        "html_setting": "",
+        "liquid_setting": "",
+        "product_setting": "the-collection-snowboard-hydrogen",
+        "product_list_setting": [
+          "selling-plans-ski-wax",
+          "the-3p-fulfilled-snowboard",
+          "the-collection-snowboard-hydrogen"
+        ],
+        "collection_setting": "automated-collection",
+        "collectionlist_setting": [
+          "automated-collection",
+          "frontpage"
+        ],
+        "text_alignment": "right",
+        "font_setting": "americana_n4"
       }
     },
     "featured_collection": {
