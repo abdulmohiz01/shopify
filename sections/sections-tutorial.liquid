@@ -56,8 +56,53 @@
 
 <h2>Product Setting</h2>
 <p>{{section.settings.product_setting}} | {{section.settings.product_setting.title}}
-    </p>
+    {{section.settings.product_setting.price | money}}
+</p>
 
+<h2>Product List Setting</h2>
+{% for product in section.settings.product_list_setting %}
+    <h3>{{product.title}}</h3>
+    <p>{{product.price | money}}</p>
+{% endfor %}
+
+<h2>Collection Setting</h2>
+<p>{{section.settings.collection_setting}} | {{section.settings.collection_setting.title}}
+</p>
+
+<h2>Collection List Settings</h2>
+{% for collection in section.settings.collectionlist_setting %}
+    <h3>{{collection.handle}}</h3>
+    <p>{{collection.price | money}}</p>
+{% endfor %}
+<div style="text-align: {{section.settings.text_alignment}};">
+    <h2>Text alignment Settings</h2>
+    <p>{{section.settings.text_alignment}}</p>
+</div>
+
+<div >
+    <h2>Font Picker Settings</h2>
+    <p>{{section.settings.font_setting.family}}</p>
+</div>
+
+<style>
+    {{section.settings.font_setting | font_face: font_display: 'swap'}}
+    .sections-tutorial * {
+        font-family: {{section.settings.font_setting.family}};
+    }
+</style>
+
+
+<h2>Blocks</h2>
+{% for block in section.blocks %}
+    {% if block.type == "section_collection" %}
+        <p>collection block</p>
+            {% assign title = block.settings.title |  default: block.settings.collection.title %}
+        {% elsif block.type == "section_product" %}
+            <p>product block</p>
+            {% assign title = block.settings.title |  default: block.settings.product.title %}
+    {% endif %}
+    {{title}}
+{% endfor %}
 
 {% schema %}
   {
@@ -147,6 +192,11 @@
             "label": "Image Picker Setting"
         },
         {
+            "type": "header",
+            "content": "Site Resources Settings",
+            "info": "This is some helpful information. [Learn More](https://www.shopify.com)"
+        },
+        {
             "type": "video",
             "id": "video_setting",
             "label": "Video Setting"
@@ -174,10 +224,87 @@
             "type": "product",
             "id": "product_setting",
             "label": "Product"
+        },
+        {
+            "type": "product_list",
+            "id": "product_list_setting",
+            "label": "Product List",
+            "limit": 10
+        },
+        {
+            "type": "collection",
+            "id": "collection_setting",
+            "label": "Collection"
+        },
+        {
+            "type": "collection_list",
+            "id": "collectionlist_setting",
+            "label": "Collection list"
+        },
+        {
+            "type": "text_alignment",
+            "id": "text_alignment",
+            "label": "Text alignment",
+            "default": "center"
+        },
+        {
+            "type": "font_picker",
+            "id": "font_setting",
+            "label": "Font Setting",
+            "default": "assistant_n4"
         }
 
     ],
-    "blocks": [],
+    "blocks": [
+        {
+            "type": "section_product",
+            "name": "Product",
+            "settings": [
+                {
+                    "type": "product",
+                    "id": "product_setting",
+                    "label": "Product"
+                },
+                {
+                    "type": "text",
+                    "id": "text_setting",
+                    "label": "Text Setting",
+                    "info": "optional"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_picker_setting",
+                    "label": "Image Picker Setting",
+                    "info": "optional"
+                }
+            ],
+            "limit": 4
+        },
+        {
+            "type": "section_collection",
+            "name": "Collection",
+            "settings": [
+                {
+                    "type": "collection",
+                    "id": "collection",
+                    "label": "Product"
+                },
+                {
+                    "type": "text",
+                    "id": "text_setting",
+                    "label": "Text Setting",
+                    "info": "optional"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_picker_setting",
+                    "label": "Image Picker Setting",
+                    "info": "optional"
+                }
+            ],
+            "limit": 4
+        }
+    ],
     "presets": [
       {
         "name": "Sections Tutorial",
