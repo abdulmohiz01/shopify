@@ -26,6 +26,7 @@
         "heading",
         "button"
       ],
+      "disabled": true,
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
@@ -39,8 +40,24 @@
         "show_text_below": false
       }
     },
+    "sections_tutorial_BfGfkV": {
+      "type": "sections-tutorial",
+      "settings": {
+        "text_setting": "This is my first setting",
+        "textarea_setting": "hey",
+        "richtext_setting": "<p>this is<strong> richtext<\/strong><\/p><p>im mohiz<\/p>",
+        "inline_richtext_setting": "this is inline <strong>richtext<\/strong>",
+        "number_setting": 21,
+        "range_setting": 40,
+        "select_setting": "value 2",
+        "checkbox_setting": true,
+        "radio_setting": "value 1",
+        "color_setting": "#334fb4"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured products",
         "heading_size": "h2",
@@ -89,6 +106,7 @@
         "promotion_jmgWrM",
         "promotion_3kEJ8r"
       ],
+      "disabled": true,
       "settings": {
         "title": "Promotions",
         "title_alignment": "center"
@@ -97,6 +115,7 @@
   },
   "order": [
     "image_banner",
+    "sections_tutorial_BfGfkV",
     "featured_collection",
     "promotions_6MY3Bb"
   ]

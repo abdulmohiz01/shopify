@@ -23,6 +23,17 @@
 <h2>Radio Setting</h2>
 <div>{{section.settings.radio_setting }}</div>
 
+<h2>Color Setting</h2>
+<div style="color: {{section.settings.color_setting}}">{{section.settings.color_setting }}</div>
+
+<h2>Color Background Setting</h2>
+<div style="background: {{section.settings.colorbackground_setting}}">{{section.settings.colorbackground_setting }}</div>
+
+{% if section.settings.image_picker_setting %}
+    <h2>Image Setting</h2>
+{{ section.settings.image_picker_setting | image_url: width: 400 |  image_tag: style: 'height: 200px; | object-fit: cover;' }}
+    
+{% endif %}
 
 {% if section.settings.checkbox_setting %}
         <p>True</p>
@@ -32,11 +43,20 @@
 {% endif %}
 
 
+{% comment %} <div>
+    <h2>Video Settings</h2>
+    {{ section.settings.video_setting |  video_tag: controls: true, loop: true, autoplay: false, muted: true, playsinline: true, preload: 'auto', width: '80%' , image_size: 500x style: "margin: auto" }}
+</div> {% endcomment %}
 
+<iframe width="560" height="315" title="Youtube Video Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen src="https://www.youtube.com/embed/{{section.settings.product_description_video.id}}" frameborder="0"></iframe>
 
+{{section.settings.html_setting }}
 
+{{section.settings.liquid_setting}}
 
-
+<h2>Product Setting</h2>
+<p>{{section.settings.product_setting}} | {{section.settings.product_setting.title}}
+    </p>
 
 
 {% schema %}
@@ -110,7 +130,52 @@
                 { "value": "value 2", "label": "Option 2" },
                 { "value": "value 3", "label": "Option 3" }
             ]
+        },
+        {
+            "type": "color",
+            "id": "color_setting",
+            "label": "Color Setting",
+        },
+        {
+            "type": "color_background",
+            "id": "colorbackground_setting",
+            "label": "Color Background Setting"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_picker_setting",
+            "label": "Image Picker Setting"
+        },
+        {
+            "type": "video",
+            "id": "video_setting",
+            "label": "Video Setting"
+        },
+        {
+            "type": "video_url",
+            "id": "product_description_video",
+            "label": "Product description video",
+            "info": "Add a video to your product description. Supported formats: YouTube, Vimeo.",
+            "accept": [
+                "youtube",
+                "vimeo" ]
+        },
+        {
+            "type": "html",
+            "label": "HTML",
+            "id": "html_setting"
+        },
+        {
+            "type": "liquid",
+            "label": "Liquid",
+            "id": "liquid_setting"
+        },
+        {
+            "type": "product",
+            "id": "product_setting",
+            "label": "Product"
         }
+
     ],
     "blocks": [],
     "presets": [
