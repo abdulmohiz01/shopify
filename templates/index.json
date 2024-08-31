@@ -43,24 +43,26 @@
     "sections_tutorial_BfGfkV": {
       "type": "sections-tutorial",
       "blocks": {
-        "section_product_BdWAf4": {
+        "section_product_egrGEe": {
           "type": "section_product",
           "settings": {
-            "product_setting": "selling-plans-ski-wax",
-            "text_setting": "This is a product."
+            "product_setting": "gift-card",
+            "title": "This is a sample product's title.",
+            "image": "shopify:\/\/shop_images\/Main_589fc064-24a2-4236-9eaf-13b2bd35d21d.jpg"
           }
         },
-        "section_product_faT8wF": {
-          "type": "section_product",
+        "section_collection_U74RTm": {
+          "type": "section_collection",
           "settings": {
-            "product_setting": "selling-plans-ski-wax",
-            "text_setting": "This is a sample product"
+            "collection": "hydrogen",
+            "title": "This is a sample collection.",
+            "image": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg"
           }
         }
       },
       "block_order": [
-        "section_product_BdWAf4",
-        "section_product_faT8wF"
+        "section_product_egrGEe",
+        "section_collection_U74RTm"
       ],
       "settings": {
         "text_setting": "This is my first setting",

@@ -119,8 +119,8 @@
     "name": "Sections Tutorial",
     "tag": "section",
     "class": "sections-tutorial",
-    // "limit": 2,
-    "enabled_on": {
+    "limit": 2,
+    "disabled_on": {
         "templates": ["collection"]
     },
     "settings": [
@@ -327,13 +327,13 @@
             {
                 "type": "section_product",
                 "settings": {
-                    "product_setting": "the-3p-fulfilled-snowboard"
+                    "product_setting": "the -3p-fulfilled-snowboard"
                 }
             },
             {
                 "type": "section_product",
                 "settings": {
-                    "product_setting": "the-3p-fulfilled-snowboard",
+                    "product_setting": "the -3p-fulfilled-snowboard",
                     "title": "Another Product"
                 }
             }
@@ -341,45 +341,12 @@
       },
       {
         "name": "Sections Tutorial with Collections",
-        "settings": {
-            "text_setting": "Section Tutorial with cOLLECTIONS"
-        },
-        "blocks": [
-            {
-                "type": "section_collection",
-                "settings": {
-                    "collection": "automated-collection"
-                }
-            },
-            {
-                "type": "section_collection",
-                "settings": {
-                    "product_setting": "automated-collection",
-                    "title": "Another Collection"
-                }
-            }
-    ]
+        
       },
+
       {
-        "name": "Sections Tuotrial with Products and Collections",
-        "settings": {
-            "text_setting": "Section Tutorial with Product & Collections"
-        },
-        "blocks": [
-            {
-                "type": "section_product",
-                "settings": {
-                    "product_setting": "the-3p-fulfilled-snowboard"
-                }
-            },
-            {
-                "type": "section_collection",
-                "settings": {
-                    "product_setting": "automated-collection",
-                    "title": "Another Collection"
-                }
-            }
-    ]
+        "name": "Sections Tutorial with Products and Collections",
+        "settings": {}
       }
     ]
   }
