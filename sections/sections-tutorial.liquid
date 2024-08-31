@@ -95,13 +95,23 @@
 <h2>Blocks</h2>
 {% for block in section.blocks %}
     {% if block.type == "section_collection" %}
-        <p>collection block</p>
             {% assign title = block.settings.title |  default: block.settings.collection.title %}
-        {% elsif block.type == "section_product" %}
+            {% assign image = block.settings.image | default: block.settings.collection.featured_image %}
+            {% elsif block.type == "section_product" %}
+                {% assign image = block.settings.image | default: block.settings.product.featured_image %}
+
             {% comment %} <p>product block</p> {% endcomment %}
             {% assign title = block.settings.title |  default: block.settings.product.title %}
     {% endif %}
-    {{title}}
+    <div {{block.shopify_attributes}}>
+
+        {% if image %}
+            <div >
+                {{image | image_url: width: 400 |  image_tag: style: 'height: 200px; | object-fit: cover;' }}
+                </div>
+            {% endif %}
+            {{title}}
+            </div>
 {% endfor %}
 
 {% schema %}
@@ -109,7 +119,10 @@
     "name": "Sections Tutorial",
     "tag": "section",
     "class": "sections-tutorial",
-    "limit": 2,
+    // "limit": 2,
+    "enabled_on": {
+        "templates": ["collection"]
+    },
     "settings": [
         {           //first 3 are required, rest are optional
             "type": "text",
@@ -262,20 +275,20 @@
             "settings": [
                 {
                     "type": "product",
-                    "id": "product_setting",
-                    "label": "Product"
+                    "label": "Product",
+                    "id": "product_setting"
                 },
                 {
                     "type": "text",
-                    "id": "text_setting",
-                    "label": "Text Setting",
-                    "info": "optional"
+                    "id": "title",
+                    "label": "Title",
+                    "info": "optional. Will override the Product's Title if defined'"
                 },
                 {
                     "type": "image_picker",
-                    "id": "image_picker_setting",
+                    "id": "image",
                     "label": "Image Picker Setting",
-                    "info": "optional"
+                    "info": "optional. Will override the Product's Image if defined"
                 }
             ],
             "limit": 4
@@ -291,24 +304,82 @@
                 },
                 {
                     "type": "text",
-                    "id": "text_setting",
-                    "label": "Text Setting",
-                    "info": "optional"
+                    "id": "title",
+                    "label": "Title Setting",
+                    "info": "optional. Will override the Collection's Title if defined"
                 },
                 {
                     "type": "image_picker",
-                    "id": "image_picker_setting",
+                    "id": "image",
                     "label": "Image Picker Setting",
-                    "info": "optional"
+                    "info": "optional. Will override the Collection's Image if defined"
                 }
-            ],
-            "limit": 4
+            ]
         }
     ],
     "presets": [
       {
-        "name": "Sections Tutorial",
-        "settings": {}
+        "name": "Sections Tutorial with Products",
+        "settings": {
+            "text_setting": "Section Tutorial with Products"
+        },
+        "blocks": [
+            {
+                "type": "section_product",
+                "settings": {
+                    "product_setting": "the-3p-fulfilled-snowboard"
+                }
+            },
+            {
+                "type": "section_product",
+                "settings": {
+                    "product_setting": "the-3p-fulfilled-snowboard",
+                    "title": "Another Product"
+                }
+            }
+        ]
+      },
+      {
+        "name": "Sections Tutorial with Collections",
+        "settings": {
+            "text_setting": "Section Tutorial with cOLLECTIONS"
+        },
+        "blocks": [
+            {
+                "type": "section_collection",
+                "settings": {
+                    "collection": "automated-collection"
+                }
+            },
+            {
+                "type": "section_collection",
+                "settings": {
+                    "product_setting": "automated-collection",
+                    "title": "Another Collection"
+                }
+            }
+    ]
+      },
+      {
+        "name": "Sections Tuotrial with Products and Collections",
+        "settings": {
+            "text_setting": "Section Tutorial with Product & Collections"
+        },
+        "blocks": [
+            {
+                "type": "section_product",
+                "settings": {
+                    "product_setting": "the-3p-fulfilled-snowboard"
+                }
+            },
+            {
+                "type": "section_collection",
+                "settings": {
+                    "product_setting": "automated-collection",
+                    "title": "Another Collection"
+                }
+            }
+    ]
       }
     ]
   }
