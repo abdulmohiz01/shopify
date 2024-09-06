@@ -118,6 +118,7 @@ customElements.define('cart-drawer', CartDrawer);
 
 class CartDrawerItems extends CartItems {
   getSectionsToRender() {
+  
     return [
       {
         id: 'CartDrawer',
